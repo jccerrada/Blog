@@ -1,0 +1,30 @@
+<h1>Usuarios de la Aplicacion</h1>
+
+<table border = '1'>
+  <tr>
+    <th colspan = '6'>Listado de usuarios</th>
+  </tr>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>E-Mail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.firstname %></td>
+    <td><%= user.lastname %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Mostrar', user %></td>
+    <td><%= link_to 'Editar', edit_user_path(user) %></td>
+    <td><%= link_to 'Borrar', user, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este usuario?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Usuario', new_user_path %>

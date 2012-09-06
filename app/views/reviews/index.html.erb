@@ -1,0 +1,27 @@
+<h1>Listado de Opiniones</h1>
+
+<table border = '1'>
+  <tr>
+    <th>Titulo</th>
+    <th>Opinion</th>
+    <th>Puntuacion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%= review.title %></td>
+    <td><%= review.body %></td>
+    <td><%= review.rate %></td>
+    <td><%= link_to 'Mostrar', review %></td>
+    <td><%= link_to 'Editar', edit_review_path(review) %></td>
+    <td><%= link_to 'Borrar', review, method: :delete, data: { confirm: 'Esta serguro que quiere borrar esta opinion?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Opinion', new_review_path %>
